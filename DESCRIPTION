@@ -6,7 +6,6 @@ Description: What the package does (paragraph)
 Depends:
     R (>= 3.1.0)
 Imports:
-    XML,
     rvest
 License: Private
 LazyData: true
