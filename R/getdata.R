@@ -1,3 +1,11 @@
+##' get list of latest files
+##'
+##' scrape web page for list
+##' @title Get latest list
+##' @param url URL of listing
+##' @return vector of links to pages
+##' @author Barry Rowlingson
+##' @export
 getLatestList = function(
     url="http://www.hscic.gov.uk/searchcatalogue?q=title%3a%22presentation+level+data%22&sort=Most+recent&size=100&page=1"
     ){
@@ -8,7 +16,16 @@ getLatestList = function(
     
 }
 
-
+##' get a dispensing archive file
+##'
+##' get one exe file
+##' @title get exe file
+##' @param pageurl url of page
+##' @param dir where to put file
+##' @param overwrite overwrite existing file
+##' @return nothing
+##' @author Barry Rowlingson
+##' @export
 getExeFromPage <- function(pageurl, dir, overwrite=FALSE){
     page = rvest::html(pageurl)
     links = page %>% rvest::html_nodes("#resources a") %>% rvest::html_attr("href")
