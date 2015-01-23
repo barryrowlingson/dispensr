@@ -8,8 +8,6 @@ getExeFromPage(pageurl, dir, overwrite = FALSE)
 \arguments{
 \item{pageurl}{url of page}
 
-\item{dir}{where to put file}
-
 \item{overwrite}{overwrite existing file}
 }
 \value{
