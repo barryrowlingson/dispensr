@@ -19,7 +19,7 @@ def fix_postcode(pc):
 def read_postcodes(pcfile, default=(-9999,-9999)):
     """ read postcodes into a lookup table 
 
-    File format is:
+    Postcode format is all the postcodes in one "pc, x, y" file:
 
     "AB101AA",394251,806376
     "AB101AB",394232,806470
