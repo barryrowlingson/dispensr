@@ -1,8 +1,11 @@
 #!/bin/env python
 import sys
+import os
+
 import postcodes
 import gp_reader
 import chem_reader
+import progress
 
 import csv
 
@@ -41,12 +44,18 @@ def read_prescriptions(Prescriptions, gplookup, chemlookup):
       process BNF code into components
       print comma-separated record to output
     """
-    
+    f_info = os.stat(Prescriptions)
+    size = f_info.st_size
+
     with open(Prescriptions, "rb") as csvfile:
         preader = csv.reader(csvfile)
         preader.next() # skip header
         pdata.writeheader()
+        linecount=0
         for line in preader:
+            linecount = linecount + 1
+            if linecount % 1000 == 0:
+                progress.progress(csvfile.tell(), size)
             o = pdata()
             o.sha = line[0]
             o.pct = line[1]
