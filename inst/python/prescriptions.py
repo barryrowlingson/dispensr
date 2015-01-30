@@ -26,6 +26,8 @@ class pdata(object):
         "act_cost",
         "quantity",
         "period",
+        "year",
+        "month",
         "xgrid",
         "ygrid",
         "postcode"]
@@ -67,6 +69,8 @@ def read_prescriptions(Prescriptions, gplookup, chemlookup):
             o.act_cost = line[7]
             o.quantity = line[8]
             o.period = line[9]
+            o.year = o.period[0:4]
+            o.month = o.period[4:6]
             o.chemical_code = o.bnfcode[0:9]
             o.chemical_name = chemlookup[o.chemical_code]
             o.product = o.bnfcode[9:11]
