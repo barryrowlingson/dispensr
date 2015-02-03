@@ -7,7 +7,5 @@ Depends:
     R (>= 3.1.0)
 Imports:
     rvest
-    rjson
-    dplyr
 License: Private
 LazyData: true
